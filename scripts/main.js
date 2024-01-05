@@ -1,15 +1,6 @@
 /** @param {SectorInfo} info */
 const hasExports = (info) => {
-  if (Version.build >= 135) {
-    return info.anyExports();
-  }
-  if (info.export.size === 0) {
-    return false;
-  }
-  // simulate anyExports logic from build 135
-  let returnval = 0;
-  info.export.each((_, e) => (returnval += e.mean));
-  return returnval >= 0.01;
+  return info.anyExports();
 };
 
 /**
@@ -21,10 +12,8 @@ const getSectorName = (sector) => {
     return "None";
   }
   let icon = "";
-  if (Version.build >= 135 && !!sector.info.contentIcon) {
+  if (sector.info.contentIcon) {
     icon = sector.info.contentIcon.emoji() + " ";
-  } else if (sector.info.icon !== null) {
-    icon = String.fromCharCode(Iconc.codes.get(sector.info.icon)) + " ";
   }
   return icon + sector.name();
 };
@@ -64,11 +53,9 @@ const addSelectionButton = (callback) => {
             t.button(
               "Launchpads",
               new TextureRegionDrawable(
-                Version.build >= 135
-                  ? Blocks.launchPad.uiIcon
-                  : Blocks.launchPad.icon(Cicon.small)
+                Blocks.launchPad.uiIcon
               ),
-              Version.build >= 135 ? Vars.iconSmall : 24,
+              Vars.iconSmall,
               callback
             ).pad(2);
           })
@@ -85,11 +72,7 @@ const addSelectionButton = (callback) => {
 const getSourceSector = (sectors) => {
   let sector;
   try {
-    if (Version.build >= 135) {
-      sector = Vars.ui.planet.state.planet.getLastSector();
-    } else {
-      sector = Vars.ui.planet.planets.planet.getLastSector();
-    }
+    sector = Vars.ui.planet.state.planet.getLastSector();
   } catch (e) {
     sector = null;
   }
