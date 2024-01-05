@@ -8,6 +8,9 @@ This is a fork of [DivisionByZero80/mindustry-launchpads](https://github.com/Div
 - redirect single launchpad from list
 - redirect all sectors at once
 
+<img src="doc/feature_1.png" width="350" title="hover text"/><br/>
+<img src="doc/feature_2.png" width="350" title="hover text"/>
+
 ## Install
 1. From the main menu go to **Mods**
 1. Either import the mod from github or search for it in the mod browser<br/><img src="doc/install_mod_1.png" width="350" title="hover text"/>
