@@ -46,10 +46,10 @@ const addSelectionButton = (callback) => {
   Vars.ui.planet.shown(() => {
     if (Vars.ui.planet.mode === PlanetDialog.Mode.look) {
       const sectors = getSectors();
-      if (sectors.length) {
+      if (sectors.length > 0) {
         Vars.ui.planet.fill(
           cons((t) => {
-            t.top().left().marginTop(5).marginLeft(5).defaults().size(200, 54);
+            t.top().left().marginTop(200).marginLeft(5).defaults().size(200, 54);
             t.button(
               "Launchpads",
               new TextureRegionDrawable(
