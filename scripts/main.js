@@ -15,6 +15,9 @@ const getSectorName = (sector) => {
   if (sector.info.contentIcon) {
     icon = sector.info.contentIcon.emoji() + " ";
   }
+  else if (sector.info.icon !== null) {
+    icon = String.fromCharCode(Iconc.codes.get(sector.info.icon)) + " ";
+  }
   return icon + sector.name();
 };
 
