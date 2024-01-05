@@ -1,9 +1,9 @@
 {
     name: "launchpad-destination-changer",
-    displayName: "Serpulo Launchpad Hub",
+    displayName: "Serpulo Launchpad Redirector",
     description: "Change sector export destination from list on planet screen",
-    author: "DivisionByZero",
+    author: "gravity981",
     version: "1.0",
     minGameVersion: 136,
-    hidden: true
+    hidden: false
 }
